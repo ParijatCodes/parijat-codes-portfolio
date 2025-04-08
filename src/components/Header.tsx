@@ -21,8 +21,14 @@ export function Header() {
   const [activeSection, setActiveSection] = useState<string>("home");
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   useEffect(() => {
+    // Set loaded state after a short delay to trigger animations
+    setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+    
     const handleScroll = () => {
       // Update header style based on scroll position
       setIsScrolled(window.scrollY > 20);
@@ -56,20 +62,29 @@ export function Header() {
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <a href="#home" className="text-xl font-bold text-navy font-heading">
+        <a 
+          href="#home" 
+          className={cn(
+            "text-xl font-bold text-navy font-heading transform transition-all duration-500",
+            isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-4 scale-95",
+            isScrolled ? "scale-90" : "scale-100"
+          )}
+        >
           Parijat Kundu
         </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {navItems.map((item) => (
+          {navItems.map((item, index) => (
             <a
               key={item.href}
               href={item.href}
               className={cn(
                 "nav-link",
-                activeSection === item.href.substring(1) && "active-nav"
+                activeSection === item.href.substring(1) && "active-nav",
+                isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
               )}
+              style={{ transitionDelay: `${100 + index * 100}ms` }}
               onClick={() => setActiveSection(item.href.substring(1))}
             >
               {item.label}
@@ -79,7 +94,10 @@ export function Header() {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-navy"
+          className={cn(
+            "md:hidden text-navy transition-opacity duration-300",
+            isLoaded ? "opacity-100" : "opacity-0"
+          )}
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -95,14 +113,17 @@ export function Header() {
         )}
       >
         <nav className="flex flex-col items-center space-y-6">
-          {navItems.map((item) => (
+          {navItems.map((item, index) => (
             <a
               key={item.href}
               href={item.href}
               className={cn(
                 "nav-link text-xl",
-                activeSection === item.href.substring(1) && "active-nav"
+                activeSection === item.href.substring(1) && "active-nav",
+                "transform transition-all duration-300",
+                isMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
               )}
+              style={{ transitionDelay: `${index * 100}ms` }}
               onClick={() => {
                 setActiveSection(item.href.substring(1));
                 closeMenu();

@@ -1,6 +1,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface Education {
   institution: string;
@@ -21,6 +22,9 @@ export function Education() {
 
   // State for animations
   const [isVisible, setIsVisible] = useState(false);
+  
+  // Use custom scroll animation hook
+  useScrollAnimation();
   
   // Intersection Observer to trigger animations when section is in view
   useEffect(() => {
@@ -45,13 +49,13 @@ export function Education() {
   return (
     <section id="education" className="py-16 md:py-24 bg-gray-50 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-title animate-fade-in">Education</h2>
+        <h2 className="section-title reveal reveal-delay-100">Education</h2>
         
         <div className="mt-10 grid grid-cols-1 gap-6">
           {educations.map((edu, index) => (
             <Card 
               key={index} 
-              className={`overflow-hidden border-none shadow-md hover:shadow-xl transition-all duration-500 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} 
+              className={`overflow-hidden border-none shadow-md hover:shadow-xl transition-all duration-500 transform reveal reveal-delay-${(index + 2) * 100} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} 
               style={{ transitionDelay: `${index * 200}ms`, transitionDuration: '800ms' }}
             >
               <CardContent className="p-0">

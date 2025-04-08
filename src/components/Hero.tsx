@@ -1,10 +1,7 @@
-
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 export function Hero() {
-  return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-white to-gray-100 flex items-center">
+  return <section id="home" className="min-h-screen bg-gradient-to-br from-white to-gray-100 flex items-center">
       <div className="container mx-auto px-4 md:px-6 py-10 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           <div className="md:col-span-7 space-y-6 animate-fade-in">
@@ -30,11 +27,7 @@ export function Hero() {
           
           <div className="md:col-span-5 flex justify-center">
             <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-navy/20 shadow-lg">
-              <img 
-                src="/public/lovable-uploads/de9f3fe3-a5b0-4b9c-8400-ab17c4274210.png"
-                alt="Parijat Kundu"
-                className="w-full h-full object-cover"
-              />
+              <img alt="Parijat Kundu" src="/lovable-uploads/36ad4c6d-8087-48e8-be0f-407a82eb82f3.jpg" className="w-full h-full object-scale-down" />
             </div>
           </div>
         </div>
@@ -45,6 +38,5 @@ export function Hero() {
           </a>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }

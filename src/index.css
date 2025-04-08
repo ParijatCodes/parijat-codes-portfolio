@@ -99,7 +99,7 @@
   
   .section-title::after {
     content: "";
-    @apply absolute bottom-0 left-0 w-1/2 h-1 bg-navy rounded;
+    @apply absolute bottom-0 left-0 w-1/2 h-1 bg-navy rounded transition-all duration-500 hover:w-full;
   }
   
   .timeline-item {
@@ -108,11 +108,11 @@
   
   .timeline-item::before {
     content: "";
-    @apply absolute top-0 left-[-9px] w-4 h-4 rounded-full bg-navy;
+    @apply absolute top-0 left-[-9px] w-4 h-4 rounded-full bg-navy transition-transform duration-300 hover:scale-150;
   }
   
   .chip {
-    @apply px-3 py-1 rounded-full text-sm bg-navy/10 text-navy inline-block mr-2 mb-2;
+    @apply px-3 py-1 rounded-full text-sm bg-navy/10 text-navy inline-block mr-2 mb-2 transition-all duration-300;
   }
   
   .nav-link {
@@ -135,4 +135,82 @@
   .active-nav::after {
     @apply w-full;
   }
+}
+
+@keyframes width {
+  from {
+    width: 0;
+  }
+  to {
+    width: 6rem;
+  }
+}
+
+/* Animation classes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.hover-grow {
+  transition: transform 0.3s ease;
+}
+
+.hover-grow:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Transition utilities */
+.transition-fast {
+  transition: all 0.2s ease;
+}
+
+.transition-medium {
+  transition: all 0.5s ease;
+}
+
+.transition-slow {
+  transition: all 0.8s ease;
 }

@@ -46,14 +46,14 @@ export function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-16 md:py-24 bg-gray-50 overflow-hidden">
+    <section id="experience" className="py-16 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-title animate-fade-in">Professional Experience</h2>
+        <h2 className="section-title">Professional Experience</h2>
         
         <div className="mt-10 space-y-12">
           {experiences.map((experience, index) => (
-            <div key={index} className="timeline-item animate-fade-in" style={{ animationDelay: `${index * 200}ms` }}>
-              <div className="mb-2 transform transition-all duration-300 hover:translate-x-2">
+            <div key={index} className="timeline-item">
+              <div className="mb-2">
                 <h3 className="text-xl font-semibold text-navy">{experience.title}</h3>
                 <p className="text-gray-600 font-medium">{experience.company}</p>
                 <p className="text-gray-500 text-sm">{experience.period}</p>
@@ -65,18 +65,18 @@ export function Experience() {
               <p className="text-gray-700 my-3">{experience.description}</p>
               
               {experience.responsibilities.length > 0 && (
-                <div className="mt-3 transform transition-opacity duration-500 hover:opacity-100 opacity-90">
+                <div className="mt-3">
                   <h4 className="text-md font-medium text-navy mb-2">Key Responsibilities:</h4>
                   <ul className="list-disc pl-5 text-gray-700 space-y-1">
                     {experience.responsibilities.map((item, i) => (
-                      <li key={i} className="hover:-translate-y-0.5 transition-transform duration-300">{item}</li>
+                      <li key={i}>{item}</li>
                     ))}
                   </ul>
                 </div>
               )}
               
               {experience.skills && (
-                <div className="mt-3 transform transition-all duration-300 hover:translate-x-1">
+                <div className="mt-3">
                   <h4 className="text-md font-medium text-navy mb-2">Skills:</h4>
                   <p className="text-gray-700">{experience.skills}</p>
                 </div>

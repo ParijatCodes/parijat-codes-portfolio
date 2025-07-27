@@ -4,12 +4,12 @@ import { User, Briefcase, FileText, Code } from "lucide-react";
 
 export function About() {
   return (
-    <section id="about" className="py-16 md:py-24 bg-white overflow-hidden">
+    <section id="about" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-title animate-fade-in">About Me</h2>
+        <h2 className="section-title">About Me</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-10">
-          <div className="md:col-span-6 space-y-4 animate-fade-in" style={{ animationDelay: "200ms" }}>
+          <div className="md:col-span-6 space-y-4">
             <p className="text-gray-700">
               I am Parijat Kundu, an aspiring AI Engineer and a B.Tech student in Computer Science Engineering.
               I'm deeply passionate about leveraging data analysis and AI solutions to transform how industries
@@ -32,11 +32,11 @@ export function About() {
             </p>
           </div>
           
-          <div className="md:col-span-6 animate-fade-in" style={{ animationDelay: "400ms" }}>
+          <div className="md:col-span-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <Card className="shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 transform">
+              <Card className="shadow-sm hover:shadow-md transition-shadow">
                 <CardContent className="p-6 flex flex-col items-center text-center">
-                  <User className="h-10 w-10 text-navy mb-4 animate-pulse" />
+                  <User className="h-10 w-10 text-navy mb-4" />
                   <h3 className="font-semibold text-lg mb-2">Personal Info</h3>
                   <ul className="space-y-2 text-gray-700 text-sm">
                     <li><span className="font-medium">Name:</span> Parijat Kundu</li>
@@ -46,9 +46,9 @@ export function About() {
                 </CardContent>
               </Card>
               
-              <Card className="shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 transform" style={{ animationDelay: "100ms" }}>
+              <Card className="shadow-sm hover:shadow-md transition-shadow">
                 <CardContent className="p-6 flex flex-col items-center text-center">
-                  <Briefcase className="h-10 w-10 text-navy mb-4 animate-pulse" />
+                  <Briefcase className="h-10 w-10 text-navy mb-4" />
                   <h3 className="font-semibold text-lg mb-2">Work Focus</h3>
                   <ul className="space-y-2 text-gray-700 text-sm">
                     <li>Business Development</li>
@@ -59,9 +59,9 @@ export function About() {
                 </CardContent>
               </Card>
               
-              <Card className="shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 transform" style={{ animationDelay: "200ms" }}>
+              <Card className="shadow-sm hover:shadow-md transition-shadow">
                 <CardContent className="p-6 flex flex-col items-center text-center">
-                  <Code className="h-10 w-10 text-navy mb-4 animate-pulse" />
+                  <Code className="h-10 w-10 text-navy mb-4" />
                   <h3 className="font-semibold text-lg mb-2">Languages</h3>
                   <ul className="space-y-2 text-gray-700 text-sm">
                     <li>English (Full Professional)</li>
@@ -72,9 +72,9 @@ export function About() {
                 </CardContent>
               </Card>
               
-              <Card className="shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 transform" style={{ animationDelay: "300ms" }}>
+              <Card className="shadow-sm hover:shadow-md transition-shadow">
                 <CardContent className="p-6 flex flex-col items-center text-center">
-                  <FileText className="h-10 w-10 text-navy mb-4 animate-pulse" />
+                  <FileText className="h-10 w-10 text-navy mb-4" />
                   <h3 className="font-semibold text-lg mb-2">Education</h3>
                   <ul className="space-y-2 text-gray-700 text-sm">
                     <li>B.Tech in Computer Science</li>

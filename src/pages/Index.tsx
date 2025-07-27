@@ -3,9 +3,11 @@ import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
+import { Projects } from "@/components/Projects";
 import { Experience } from "@/components/Experience";
 import { Skills } from "@/components/Skills";
 import { Education } from "@/components/Education";
+import { Blog } from "@/components/Blog";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
@@ -45,14 +47,16 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen overflow-x-hidden">
+    <div className="flex flex-col min-h-screen overflow-x-hidden bg-background text-foreground">
       <Header />
       <main className="flex-grow">
         <Hero />
         <About />
+        <Projects />
         <Experience />
         <Skills />
         <Education />
+        <Blog />
         <Contact />
       </main>
       <Footer />

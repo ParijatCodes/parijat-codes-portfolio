@@ -1,7 +1,9 @@
 
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 interface NavItem {
   label: string;
@@ -11,9 +13,9 @@ interface NavItem {
 const navItems: NavItem[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
-  { label: "Education", href: "#education" },
+  { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -58,23 +60,23 @@ export function Header() {
     <header
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4",
-        isScrolled ? "bg-white/90 backdrop-blur-sm shadow-sm" : "bg-transparent"
+        isScrolled ? "nav-blur shadow-glow" : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <a 
           href="#home" 
           className={cn(
-            "text-xl font-bold text-navy font-heading transform transition-all duration-500",
+            "text-xl font-bold gradient-text font-heading transform transition-all duration-500",
             isLoaded ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-4 scale-95",
             isScrolled ? "scale-90" : "scale-100"
           )}
         >
-          Parijat Kundu
+          Parijat
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-6">
           {navItems.map((item, index) => (
             <a
               key={item.href}
@@ -90,6 +92,18 @@ export function Header() {
               {item.label}
             </a>
           ))}
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="btn-glow animate-slide-down"
+            style={{ animationDelay: '600ms' }}
+          >
+            <Download className="w-4 h-4 mr-2" />
+            Resume
+          </Button>
+          <div className="animate-slide-down" style={{ animationDelay: '700ms' }}>
+            <ThemeToggle />
+          </div>
         </nav>
 
         {/* Mobile Menu Button */}
